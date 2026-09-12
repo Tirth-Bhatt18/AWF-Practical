@@ -1,0 +1,9 @@
+$kind: http-request
+name: post
+description: ""
+url: http://localhost:5000/tasks
+method: POST
+body:
+  type: json
+  content: '{"title":"hi2","description":"hello2","priority":"medium"}'
+order: 1788168414583

@@ -1,0 +1,13 @@
+$kind: http-request
+name: GET
+description: ""
+url: http://localhost:5000/tasks
+method: GET
+body:
+  type: json
+  content: |-
+    {
+        "title":"Learn Express",
+        "completed":true
+    }
+order: 4080048281790403

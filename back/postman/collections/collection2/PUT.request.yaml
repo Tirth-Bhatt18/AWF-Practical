@@ -1,0 +1,13 @@
+$kind: http-request
+name: PUT
+description: ""
+url: http://localhost:5000/tasks/1
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "title": "This is completed Task 1",
+        "completed": true
+    }
+order: 4503593642833194

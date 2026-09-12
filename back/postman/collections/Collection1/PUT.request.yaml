@@ -1,0 +1,13 @@
+$kind: http-request
+name: PUT
+description: ""
+url: http://localhost:5000/tasks/2
+method: PUT
+body:
+  type: json
+  content: |-
+    {
+        "title":"Learn Express",
+        "completed":true
+    }
+order: 3155141305271850

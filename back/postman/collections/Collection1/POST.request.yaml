@@ -1,0 +1,13 @@
+$kind: http-request
+name: POST
+description: ""
+url: http://localhost:5000/tasks
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "title":"Learn Express",
+        "completed":false
+    }
+order: 2344868726042563

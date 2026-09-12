@@ -1,0 +1,13 @@
+$kind: http-request
+name: POST
+description: ""
+url: http://localhost:5000/tasks
+method: POST
+body:
+  type: json
+  content: |-
+    {
+        "title": "This is Task N",
+        "completed": false
+    }
+order: 4503443384422026

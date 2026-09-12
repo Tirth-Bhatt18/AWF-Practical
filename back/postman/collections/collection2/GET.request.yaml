@@ -1,0 +1,9 @@
+$kind: http-request
+name: GET
+description: ""
+url: http://localhost:5000/tasks
+method: GET
+body:
+  type: json
+  content: ""
+order: 1785950655279
