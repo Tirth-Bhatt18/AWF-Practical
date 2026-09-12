@@ -46,8 +46,8 @@ Create a `.env` file inside the `Pr4 Task Manager` directory (refer to `.env.exa
 
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://24ce012_db_user:<db_password>@cluster0.ppp7q6s.mongodb.net/taskmanager?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=itue301_super_secret_jwt_key_2026
+MONGO_URI=???
+JWT_SECRET=???
 ```
 
 ---
@@ -57,7 +57,7 @@ JWT_SECRET=itue301_super_secret_jwt_key_2026
 ### 1. Start the Express Backend
 
 ```bash
-cd "Pr4 Task Manager"
+cd "back"
 npm install
 npm run dev
 # Server runs on http://localhost:5000
@@ -66,7 +66,7 @@ npm run dev
 ### 2. Start the React Frontend
 
 ```bash
-cd "Pr1 Student Portfolio"
+cd "front"
 npm install
 npm run dev
 # Frontend runs on http://localhost:5173
