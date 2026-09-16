@@ -1,6 +1,6 @@
-# ITUE301 Advanced Web Development Frameworks — Practicals 1–7
+# ITUE301 Advanced Web Development Frameworks
 
-This repository contains the complete, continuously evolving full-stack Web Application for **ITUE301 Practicals 1 through 7**.
+This repository contains the complete, continuously evolving full-stack Web Application for **ITUE301**.
 
 ---
 
@@ -86,6 +86,38 @@ npm run dev
 | `POST` | `/tasks` | 🔒 Protected | Create a new task (`title`, `description`, `priority`) |
 | `PUT` | `/tasks/:id` | 🔒 Protected | Update a task by ID |
 | `DELETE` | `/tasks/:id` | 🔒 Protected | Delete a task by ID |
+
+---
+
+## ⚡ Performance Optimization
+
+Practical 8 adds route-based code splitting to the React frontend. `App.jsx` uses
+`React.lazy()` with dynamic imports for the Home, Projects, Contact, Tasks, and
+NotFound pages. Vite can therefore emit each page as a separate JavaScript chunk
+instead of including every route in the initial bundle. The existing Tasks page
+is also lazy-loaded as the largest route component, without adding a new dependency.
+
+The route block is wrapped in `Suspense`, which renders the shared themed loading
+state while a route's chunk is being downloaded. The navbar, footer, authentication
+check, and application shell remain available while the route content loads.
+
+### Measurement Record
+
+Run `npm run build` from `front/` and record the generated asset sizes from the
+Vite output. Use the browser Network tab with a hard reload to record initial JS
+transferred and initial load time, then navigate to `/projects`, `/contact`, and
+`/tasks` to observe their route-specific chunks. Use Slow 3G throttling when
+checking the fallback UI.
+
+| Metric | Before optimization | After optimization |
+| :--- | :--- | :--- |
+| Initial JavaScript transferred | _Record baseline_ | _Record after build_ |
+| Initial load time | _Record baseline_ | _Record after build_ |
+| Generated asset/chunk sizes | _Record baseline_ | _Record Vite output_ |
+| Route chunk loading | _All route code initially loaded_ | _Record chunks on route navigation_ |
+
+For the React DevTools Profiler exercise, record one unnecessary re-render and
+the component that caused it here: _add observation after profiling_.
 
 ---
 

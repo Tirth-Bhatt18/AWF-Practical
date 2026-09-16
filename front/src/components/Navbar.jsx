@@ -27,6 +27,8 @@ function Navbar({ darkMode, setDarkMode, user, onLogout }) {
                         onClick={() => setDarkMode(!darkMode)}
                         className="theme-toggle-btn"
                         title="Toggle Dark / Light Theme"
+                        aria-label={`Switch to ${darkMode ? "light" : "dark"} mode`}
+                        aria-pressed={darkMode}
                     >
                         {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
                     </button>

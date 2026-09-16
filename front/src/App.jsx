@@ -1,14 +1,24 @@
-import { useState, useEffect } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import Contact from "./pages/Contact";
-import Tasks from "./pages/Tasks";
-import NotFound from "./pages/NotFound";
 import { getToken, removeToken, getMe } from "./api";
 import "./App.css";
+
+const Home = lazy(() => import("./pages/Home"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Tasks = lazy(() => import("./pages/Tasks"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+function Loading() {
+    return (
+        <div className="route-loading" role="status" aria-live="polite">
+            <span className="loading-spinner" aria-hidden="true" />
+            <p>Loading page...</p>
+        </div>
+    );
+}
 
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
@@ -77,13 +87,15 @@ function App() {
             />
 
             <main className="main-viewport">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/projects" element={<Projects />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/tasks" element={<Tasks user={user} setUser={setUser} setToast={setToast} />} />
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <Suspense fallback={<Loading />}>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/projects" element={<Projects />} />
+                        <Route path="/contact" element={<Contact />} />
+                        <Route path="/tasks" element={<Tasks user={user} setUser={setUser} setToast={setToast} />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </Suspense>
             </main>
 
             <Footer />
