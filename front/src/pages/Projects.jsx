@@ -5,7 +5,7 @@ function Projects() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
-    const [username, setUsername] = useState("octocat");
+    const [username, setUsername] = useState("tirth-bhatt18");
 
     const fetchRepositories = async (targetUser) => {
         setLoading(true);
@@ -59,7 +59,7 @@ function Projects() {
                         name="githubUser"
                         type="text"
                         defaultValue={username}
-                        placeholder="e.g. octocat, facebook"
+                        placeholder="e.g. tirth-bhatt18"
                     />
                     <button type="submit" className="btn btn-primary">Fetch Repos</button>
                 </form>
