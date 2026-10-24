@@ -52,11 +52,15 @@ function Tasks({ user, setUser, setToast }) {
 
     useEffect(() => {
         if (getToken()) {
+            // Loading user data is an async state synchronization triggered by the token.
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             loadUserDataAndTasks();
         } else {
             setUser(null);
             setTasks([]);
         }
+        // The loader intentionally captures the current auth helpers.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Handle Login / Register submit
@@ -66,7 +70,7 @@ function Tasks({ user, setUser, setToast }) {
 
         try {
             if (isRegisterView) {
-                const res = await registerUser(authForm);
+                await registerUser(authForm);
                 setToast({ type: "success", message: "Registration successful! Please log in." });
                 setIsRegisterView(false);
                 setAuthForm({ name: "", email: "", password: "" });

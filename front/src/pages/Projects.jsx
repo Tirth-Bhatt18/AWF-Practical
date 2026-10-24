@@ -25,6 +25,8 @@ function Projects() {
     };
 
     useEffect(() => {
+        // The request updates loading and error state as part of its lifecycle.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         fetchRepositories(username);
     }, [username]);
 

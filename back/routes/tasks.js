@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/auth");
+const requireDatabase = require("../middleware/database");
 const { validateTask } = require("../middleware/validation");
 const {
     getTasks,
@@ -12,6 +13,7 @@ const {
 
 // All task routes are protected by auth middleware
 router.use(auth);
+router.use(requireDatabase);
 
 router.get("/", getTasks);
 router.get("/:id", getTaskById);
